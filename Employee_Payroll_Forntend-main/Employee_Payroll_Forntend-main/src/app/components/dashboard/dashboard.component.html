@@ -1,0 +1,43 @@
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="fw-bold">Person Details</h2>
+        <button class="btn btn-primary btn-add" [routerLink]="['/add_employee']">+ Add Person</button>
+    </div>
+    <div class="card p-3">
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover text-center align-middle">
+                <thead class="table-light">
+                    <tr> 
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Profile Pic</th>
+                        <th>Salary</th>
+                        <th>Gender</th>
+                        <th>Start Date</th>
+                        <th>Departments</th>
+                        <th>Note</th> 
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for(item of userData; track $index) {
+                        <tr> 
+                            <td>{{item.id}}</td>
+                            <td>{{item.name}}</td>
+                            <td>{{item.profilePic}}</td>
+                            <td>{{item.salary}}</td>
+                            <td>{{item.gender}}</td>
+                            <td>{{item.startDate}}</td>
+                            <td>{{item.department}}</td>
+                            <td>{{item.note}}</td>
+                            <td>
+                                <span class="action-icons text-primary me-2 d-inline-flex align-items-center" (click)="editUser(item)">✏️</span>
+                                <span class="action-icons text-danger d-inline-flex align-items-center" (click)="deleteUser(item.id)">🗑️</span>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,98 @@
+<div class="container mt-4">
+    <h2 class="text-center">Employee Payroll Form</h2>
+    <form (submit)="saveUserData()">
+      <!-- Name -->
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" id="name" class="form-control" required [(ngModel)]="userData.name" name="name" >
+      </div>
+  
+      <!-- Profile Image Selection -->
+      <div class="mb-3">
+        <label class="form-label">Profile Image</label>
+        <div class="d-flex gap-2">
+          <input type="radio" id="profile1" name="profile" value="profile1" class="d-none">
+          <label for="profile1"><img src="profile1.jpg" class="rounded-circle border border-secondary p-1"></label>
+  
+          <input type="radio" id="profile2" name="profile" value="profile2" class="d-none">
+          <label for="profile2"><img src="profile2.jpg" class="rounded-circle border border-secondary p-1"></label>
+  
+          <input type="radio" id="profile3" name="profile" value="profile3" class="d-none">
+          <label for="profile3"><img src="profile3.jpg" class="rounded-circle border border-secondary p-1"></label>
+  
+          <input type="radio" id="profile4" name="profile" value="profile4" class="d-none">
+          <label for="profile4"><img src="profile4.jpg" class="rounded-circle border border-secondary p-1"></label>
+        </div>
+      </div>
+  
+      <!-- Gender -->
+      <div class="mb-3">
+        <label class="form-label">Gender</label>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" id="male" name="gender" value="Male" [(ngModel)]="userData.gender">
+          <label class="form-check-label" for="male">Male</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" id="female" name="gender" value="Female" [(ngModel)]="userData.gender" >
+          <label class="form-check-label" for="female">Female</label>
+        </div>
+      </div>
+  
+      <!-- Department -->
+      <div class="mb-3">
+        <label class="form-label">Department</label>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="hr" value="HR" (change)="updateDepartment($event)">
+          <label class="form-check-label" for="hr">HR</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="sales" value="Sales" (change)="updateDepartment($event)">
+          <label class="form-check-label" for="sales">Sales</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="finance" value="Finance" (change)="updateDepartment($event)">
+          <label class="form-check-label" for="finance">Finance</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="engineer" value="Engineer" (change)="updateDepartment($event)">
+          <label class="form-check-label" for="engineer">Engineer</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="others" value="Others" (change)="updateDepartment($event)">
+          <label class="form-check-label" for="others">Others</label>
+        </div>
+      </div>
+  
+      <!-- Salary -->
+      <div class="mb-3">
+        <label for="salary" class="form-label">Salary</label>
+        <select id="salary" class="form-select" [(ngModel)]="userData.salary" name="salary">
+          <option value="">Select Salary</option>
+          <option value="30000">30,000</option>
+          <option value="40000">40,000</option>
+          <option value="50000">50,000</option>
+          <option value="60000">60,000</option>
+        </select>
+      </div>
+  
+      <!-- Start Date -->
+      <div class="mb-3">
+        <label for="startDate" class="form-label">Start Date</label>
+        <input type="date" id="startDate" class="form-control"  [(ngModel)]="userData.startDate" name="startDate">
+      </div>
+  
+      <!-- Notes -->
+      <div class="mb-3">
+        <label for="notes" class="form-label">Notes</label>
+        <textarea id="notes" class="form-control" rows="3" [(ngModel)]="userData.note" name="note"></textarea>
+      </div>
+  
+      <!-- Buttons -->
+      <div class="d-flex justify-content-between">
+        <button type="button" class="btn btn-secondary">Cancel</button>
+        <button type="submit" class="btn btn-success">Submit</button>
+        <button type="reset" class="btn btn-danger">Reset</button>
+      </div>
+    </form>
+  </div>
+  
