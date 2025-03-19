@@ -1,0 +1,31 @@
+<div class="container mt-4">
+    <h2>Contact List</h2>
+    <button class="btn btn-primary mb-3" [routerLink]="['/add-user']">Add Person</button>
+
+    <app-contact-form *ngIf="showForm"></app-contact-form>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Full Name</th>
+          <th>Phone</th>
+          <th>Address</th>
+          <th>City</th>
+          <th>State</th>
+          <th>Zip Code</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let contact of contacts">
+          <td>{{ contact.name }}</td>
+          <td>{{ contact.phone }}</td>
+          <td>{{ contact.address }}</td>
+          <td>{{ contact.city }}</td>
+          <td>{{ contact.state }}</td>
+          <td>{{ contact.zipCode }}</td>
+        </tr>
+      </tbody>
+    </table>
+    
+  </div>
+  
+  
